@@ -3,7 +3,7 @@ import fs from 'fs'
 import matter from 'gray-matter'
 import Link from 'next/link'
 
-interface FrontMatter {
+export interface FrontMatter {
   title: string
   author: string
   date: string
@@ -22,7 +22,7 @@ export default function Blog({ posts }: Props) {
   return (
     <div className="grid grid-cols-3 gap-6">
       {posts.map((post) => (
-        <Link href={`/blog/${post.slug}`}>
+        <Link key={post.slug} href={`/blog/${post.slug}`}>
           <a className="group">
             <div className="border border-slate-300 shadow-md transition group-hover:shadow-xl p-4">
               <img src={`/${post.frontMatter.image}`} className="mb-4" alt="" />
