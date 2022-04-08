@@ -12,7 +12,7 @@ interface Props {
 export default function BlogPost({ frontMatter, content }: Props) {
   return (
     <div
-      className="prose"
+      className="mx-auto prose"
       dangerouslySetInnerHTML={{ __html: md().render(content) }}
     />
   )
@@ -30,7 +30,7 @@ export const getStaticPaths: GetStaticPaths = () => {
 
   return {
     paths,
-    fallback: true,
+    fallback: false,
   }
 }
 
